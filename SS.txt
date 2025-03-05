@@ -1,0 +1,16 @@
+в Сессию можно добавить атрибуты и читать их на клиенте
+
+у куки есть срок действия
+у куки есть поля domain И path - к какому сайту/домену они относятся(same origin policy)
+set-coockie - заголовок, в котором сервер передает куки для клиента
+jsessiondID - куки уникальный идентификатор пользователя
+у куки надо устанваливать срок действия, удалить куки - установить время жизни 0 или -1(при -1 куки удаляться при закрытии браузера)
+
+Есть Security Filter Chain, заетм только идут прсотые фильтры. Secirity фильтры должны иметь аргументы при регисстрации(addFilterBefore и тд) в виде след классов:
+	UsernamePasswordAuthenticationFilter: Handles form-based login.
+	BasicAuthenticationFilter: Handles HTTP Basic authentication.
+	SecurityContextPersistenceFilter: Restores the SecurityContext from the SecurityContextRepository.
+	FilterSecurityInterceptor: Performs authorization checks.
+
+hasRole("ADMIN") - имеет роль
+hasAuthorities("DOTHIS", "ORDOTHIS") - может делать какие-то действия

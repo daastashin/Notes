@@ -21,3 +21,7 @@ JdbcTemplate:
 сокращение кода, маппинг
 	jdbcTemplate.execQuery("sql string", RowMapper). RowMapper(интерфейс) - объект, который указывает, как преобразоывать строки из табицы в сущности.
 	Всегда используется preparedStatement jdbcTemplate.execQuery("sql string c ?", массив значений для ?, RowMapper)
+
+BatchUpdate - массавая вставка в базу. Делается через jdbc.batchUpdate(sqlQuery, new BatchPreparedStatement()) 
+	у него реализуем методы setValues:вставляем значения в pstm как в цикле,
+	getBatchSize - возвращаем количество необходимых вставок, как максимальное значение счетчика цикла
